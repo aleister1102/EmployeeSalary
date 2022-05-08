@@ -10,7 +10,7 @@ private:
 public:
 	string Name() { return _name; }
 	int Payment(){return _payment;}
-	void setFullName(string fullName) { _name = fullName; }
+	void setFullName(string name) { _name = name; }
 	void setPayment(int payment) { _payment = payment; }
 
 public:
@@ -77,7 +77,7 @@ private:
 	int _fixedPayment = 500;
 
 public:
-	int Employees() { return _totalEmployees; }
+	int TotalEmployees() { return _totalEmployees; }
 	int FixedPayment() { return _fixedPayment; }
 public:
 	Manager();
