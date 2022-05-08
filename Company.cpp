@@ -10,7 +10,7 @@ Company::Company(string fileName)
 		int payment = Converter::parseInt(StringHelper::searchRegex(lines[i + 1], PAYMENT));
 		int unit = Converter::parseInt(StringHelper::searchRegex(lines[i + 1], UNIT));
 
-		Employee* employee = nullptr;
+		IEmployee* employee = nullptr;
 		if (StringHelper::searchRegex(lines[i], DAILY_EMPLOYEE) != "")
 		{
 			int employeeType = EmployeeType::DailyEmployee;

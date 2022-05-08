@@ -16,7 +16,7 @@ public:
 
 class Company {
 private:
-	vector<Employee*> _employees;
+	vector<IEmployee*> _employees;
 	
 public:
 	Company(string);

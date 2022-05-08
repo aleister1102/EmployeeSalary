@@ -2,13 +2,13 @@
 
 // Interface
 
-Employee::Employee()
+IEmployee::IEmployee()
 {
 	_name = "";
 	_payment = 0;
 }
 
-Employee::Employee(string name, int payment)
+IEmployee::IEmployee(string name, int payment)
 {
 	this->_name = name;
 	this->_payment = payment;
@@ -17,13 +17,13 @@ Employee::Employee(string name, int payment)
 
 // DailyEmployee
 
-DailyEmployee::DailyEmployee() : Employee()
+DailyEmployee::DailyEmployee() : IEmployee()
 {
 	_days = 0;
 }
 
 DailyEmployee::DailyEmployee(string name, int payment, int days)
-	: Employee(name, payment) {
+	: IEmployee(name, payment) {
 	_days = days;
 }
 
@@ -46,13 +46,13 @@ int DailyEmployee::getTotalPayment()
 
 // Hourly Employee
 
-HourlyEmployee::HourlyEmployee() : Employee()
+HourlyEmployee::HourlyEmployee() : IEmployee()
 {
 	_hours = 0;
 }
 
 HourlyEmployee::HourlyEmployee(string name, int payment, int hours)
-	: Employee(name, payment) {
+	: IEmployee(name, payment) {
 	_hours = hours;
 }
 
@@ -75,13 +75,13 @@ int HourlyEmployee::getTotalPayment()
 
 // Product Employee
 
-ProductEmployee::ProductEmployee() : Employee()
+ProductEmployee::ProductEmployee() : IEmployee()
 {
 	_products = 0;
 }
 
 ProductEmployee::ProductEmployee(string name, int payment, int products)
-	: Employee(name, payment) {
+	: IEmployee(name, payment) {
 	_products = products;
 }
 
@@ -104,13 +104,13 @@ int ProductEmployee::getTotalPayment()
 
 // Manager
 
-Manager::Manager() : Employee()
+Manager::Manager() : IEmployee()
 {
 	_totalEmployees = 0;
 }
 
 Manager::Manager(string name, int payment, int employees)
-	: Employee(name, payment) {
+	: IEmployee(name, payment) {
 	_totalEmployees = employees;
 }
 
@@ -121,14 +121,14 @@ string Manager::toString() {
 	builder << "Name: " << Name() << "\n";
 	builder << "Fixed Payment = " << FixedPayment() << "$\n";
 	builder << "Payment Per Employee = " << Payment() << "$\n";
-	builder << "Total Employees = " << Employees() << "\n";
+	builder << "Total Employees = " << TotalEmployees() << "\n";
 
 	return builder.str();
 }
 
 int Manager::getTotalPayment()
 {
-	int totalPayment = Payment() * Employees() + FixedPayment();
+	int totalPayment = Payment() * TotalEmployees() + FixedPayment();
 	return totalPayment;
 }
 

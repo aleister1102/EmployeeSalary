@@ -1,7 +1,7 @@
 #pragma once
 #include "Standard.h"
 
-class Employee
+class IEmployee
 {
 private:
 	string _name;
@@ -14,15 +14,15 @@ public:
 	void setPayment(int payment) { _payment = payment; }
 
 public:
-	Employee();
-	Employee(string, int);
+	IEmployee();
+	IEmployee(string, int);
 
 public:
 	virtual string toString() = 0;
 	virtual int getTotalPayment() = 0;
 };
 
-class DailyEmployee : public Employee {
+class DailyEmployee : public IEmployee {
 private:
 	int _days;
 
@@ -38,7 +38,7 @@ public:
 	int getTotalPayment();
 };
 
-class HourlyEmployee : public Employee {
+class HourlyEmployee : public IEmployee {
 private:
 	int _hours;
 
@@ -54,7 +54,7 @@ public:
 	int getTotalPayment();
 };
 
-class ProductEmployee : public Employee {
+class ProductEmployee : public IEmployee {
 private:
 	int _products;
 
@@ -71,7 +71,7 @@ public:
 };
 
 
-class Manager : public Employee {
+class Manager : public IEmployee {
 private:
 	int _totalEmployees;
 	int _fixedPayment = 500;
