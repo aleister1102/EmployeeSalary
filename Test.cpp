@@ -1,18 +1,26 @@
+#include "Business.h"
 #include "Employee.h"
-#include "Company.h"
 
-
-int  main()
+struct
 {
-#if 1
+	vector<IEmployee *> employees;
+} company;
+
+int main()
+{
+#if 0
 	IEmployee* employee1 = new DailyEmployee("Quan", 100, 28);
 	cout << employee1->toString() << endl;
 	cout << "Total Payment: " << employee1->getTotalPayment() << endl << endl;
 #endif
 
 #if 1
-	Company company("November2021.txt");
-	cout << company.toString() << endl;
+	company.employees = getEmployee("November2021.txt");
+	for (auto employee : company.employees)
+	{
+		cout << employee->toString() << endl;
+	}
+	cout << endl;
 #endif
 
 	return 0;

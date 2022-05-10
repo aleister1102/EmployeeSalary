@@ -1,6 +1,14 @@
 #pragma once
 #include "Standard.h"
 
+class EmployeeType {
+public:
+	inline static int DailyEmployee = 1;
+	inline static int HourlyEmployee = 2;
+	inline static int ProductEmployee = 3;
+	inline static int Manager = 4;
+};
+
 class IEmployee
 {
 private:

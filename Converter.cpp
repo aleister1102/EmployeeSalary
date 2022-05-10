@@ -3,18 +3,18 @@
 // ------------- tryParse -------------
 
 /**
- * It takes a string and a regex pattern, and returns a tuple containing a State object and a string.
- * The State object contains information about whether the regex pattern matched the string, and if
+ * It takes a string and a regex pattern, and returns a tuple containing a Flags object and a string.
+ * The Flags object contains information about whether the regex pattern matched the string, and if
  * not, what the error was. The string contains the matched string
  *
  * @param str The string to be parsed
  * @param pattern The regular expression to use for parsing.
  *
- * @return A tuple of type tuple&lt;State, string&gt;
+ * @return A tuple of type tuple&lt;Flags, string&gt;
  */
-tuple<State, string> Converter::tryParse(string str, regex pattern)
+tuple<Flags, string> Converter::tryParse(string str, regex pattern)
 {
-	State flags;
+	Flags flags;
 	string matchStr;
 
 	if (str.size() == 0)
@@ -51,11 +51,11 @@ tuple<State, string> Converter::tryParse(string str, regex pattern)
  *
  * @param str The string to be parsed.
  *
- * @return A tuple of State and string.
+ * @return A tuple of Flags and string.
  */
 int Converter::parseInt(const string str)
 {
-	State flags;
+	Flags flags;
 	string number;
 	int result = 0;
 
@@ -80,11 +80,11 @@ int Converter::parseInt(const string str)
  *
  * @param str The string to parse
  *
- * @return A tuple of State and string.
+ * @return A tuple of Flags and string.
  */
 float Converter::parseFloat(const string str)
 {
-	State flags;
+	Flags flags;
 	string number;
 	float result = 0;
 
