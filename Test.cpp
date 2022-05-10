@@ -18,7 +18,8 @@ int main()
 	company.employees = getEmployee("November2021.txt");
 	for (auto employee : company.employees)
 	{
-		cout << employee->toString() << endl;
+		cout << employee->toString();
+		cout << "Total payment: " << employee->getTotalPayment() << endl<<endl;
 	}
 	cout << endl;
 #endif

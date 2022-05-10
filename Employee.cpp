@@ -2,6 +2,32 @@
 
 // Interface
 
+IEmployee* IEmployee::getInfEmployee(int type, string name, int payment, int unit)
+{
+	IEmployee* employee = nullptr;
+	if (type == EmployeeType::DailyEmployee)
+	{
+		employee = new DailyEmployee(name, payment, unit);
+		return employee;
+	}
+	else if (type == EmployeeType::HourlyEmployee)
+	{
+		employee = new HourlyEmployee(name, payment, unit);
+		return employee;
+	}
+	else if (type == EmployeeType::ProductEmployee)
+	{
+		employee = new ProductEmployee(name, payment, unit);
+		return employee;
+	}
+	else if (type == EmployeeType::Manager)
+	{
+		employee = new Manager(name, payment, unit);
+		return employee;
+	}
+	return employee;
+}
+
 IEmployee::IEmployee()
 {
 	_name = "";

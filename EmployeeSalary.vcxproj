@@ -23,17 +23,16 @@
     <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Company.h" />
+    <ClInclude Include="Business.h" />
     <ClInclude Include="Converter.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="FileHelper.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="Standard.h" />
-    <ClInclude Include="State.h" />
     <ClInclude Include="StringHelper.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Company.cpp" />
+    <ClCompile Include="Business.cpp" />
     <ClCompile Include="Converter.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="FileHelper.cpp" />

@@ -21,6 +21,8 @@ public:
 	void setFullName(string name) { _name = name; }
 	void setPayment(int payment) { _payment = payment; }
 
+	static IEmployee* getInfEmployee(int type, string name, int payment, int unit);
+
 public:
 	IEmployee();
 	IEmployee(string, int);

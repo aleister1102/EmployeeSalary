@@ -5,7 +5,6 @@ vector<IEmployee*> getEmployee(string fileName)
     vector<string> lines = FileHelper::readTXT(fileName);
     vector<IEmployee*> employees;
 
-
     for (int i = 0; i < lines.size(); i += 2)
     {
         string name = StringHelper::trim(StringHelper::searchRegex(lines[i], NAME));
@@ -16,22 +15,22 @@ vector<IEmployee*> getEmployee(string fileName)
         if (StringHelper::searchRegex(lines[i], DAILY_EMPLOYEE) != "")
         {
             int employeeType = EmployeeType::DailyEmployee;
-            employee = new DailyEmployee(name, payment, unit);
+            employee = IEmployee::getInfEmployee(employeeType, name, payment, unit);
         }
         else if (StringHelper::searchRegex(lines[i], HOURLY_EMPLOYEE) != "")
         {
             int employeeType = EmployeeType::HourlyEmployee;
-            employee = new HourlyEmployee(name, payment, unit);
+            employee = IEmployee::getInfEmployee(employeeType, name, payment, unit);
         }
         else if (StringHelper::searchRegex(lines[i], PRODUCT_EMPLOYEE) != "")
         {
             int employeeType = EmployeeType::ProductEmployee;
-            employee = new ProductEmployee(name, payment, unit);
+            employee = IEmployee::getInfEmployee(employeeType, name, payment, unit);
         }
         else
         {
             int employeeType = EmployeeType::Manager; // default is manager
-            employee = new Manager(name, payment, unit);
+            employee = IEmployee::getInfEmployee(employeeType, name, payment, unit);
         }
 
         employees.push_back(employee);
