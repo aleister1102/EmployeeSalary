@@ -114,3 +114,4 @@ private:
 public:
 	IEmployee* makeEmployee(int type, string name, int payment, int unit);
 };
+
