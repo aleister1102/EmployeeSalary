@@ -2,32 +2,6 @@
 
 // Interface
 
-IEmployee* IEmployee::getInfEmployee(int type, string name, int payment, int unit)
-{
-	IEmployee* employee = nullptr;
-	if (type == EmployeeType::DailyEmployee)
-	{
-		employee = new DailyEmployee(name, payment, unit);
-		return employee;
-	}
-	else if (type == EmployeeType::HourlyEmployee)
-	{
-		employee = new HourlyEmployee(name, payment, unit);
-		return employee;
-	}
-	else if (type == EmployeeType::ProductEmployee)
-	{
-		employee = new ProductEmployee(name, payment, unit);
-		return employee;
-	}
-	else if (type == EmployeeType::Manager)
-	{
-		employee = new Manager(name, payment, unit);
-		return employee;
-	}
-	return employee;
-}
-
 IEmployee::IEmployee()
 {
 	_name = "";
@@ -51,6 +25,11 @@ DailyEmployee::DailyEmployee() : IEmployee()
 DailyEmployee::DailyEmployee(string name, int payment, int days)
 	: IEmployee(name, payment) {
 	_days = days;
+}
+
+IEmployee* DailyEmployee::Clone(string name, int payment, int days)
+{
+	return new DailyEmployee(name, payment, days);
 }
 
 string DailyEmployee::toString() {
@@ -82,6 +61,11 @@ HourlyEmployee::HourlyEmployee(string name, int payment, int hours)
 	_hours = hours;
 }
 
+IEmployee* HourlyEmployee::Clone(string name, int payment, int hours)
+{
+	return new HourlyEmployee(name, payment, hours);
+}
+
 string HourlyEmployee::toString() {
 	stringstream builder;
 
@@ -109,6 +93,11 @@ ProductEmployee::ProductEmployee() : IEmployee()
 ProductEmployee::ProductEmployee(string name, int payment, int products)
 	: IEmployee(name, payment) {
 	_products = products;
+}
+
+IEmployee* ProductEmployee::Clone(string name, int payment, int products)
+{
+	return new ProductEmployee(name, payment, products);
 }
 
 string ProductEmployee::toString() {
@@ -140,6 +129,11 @@ Manager::Manager(string name, int payment, int employees)
 	_totalEmployees = employees;
 }
 
+IEmployee* Manager::Clone(string name, int payment, int employees)
+{
+	return new Manager(name, payment, employees);
+}
+
 string Manager::toString() {
 	stringstream builder;
 
@@ -158,3 +152,46 @@ int Manager::getTotalPayment()
 	return totalPayment;
 }
 
+// Employee Factory
+
+IEmployee* EmployeeFactory::createEmployee(int type, string name, int payment, int unit)
+{
+	IEmployee* employee = nullptr;
+
+	if (type == EmployeeType::DailyEmployee)
+	{
+		employee = new DailyEmployee(name, payment, unit);
+		return employee;
+	}
+	else if (type == EmployeeType::HourlyEmployee)
+	{
+		employee = new HourlyEmployee(name, payment, unit);
+		return employee;
+	}
+	else if (type == EmployeeType::ProductEmployee)
+	{
+		employee = new ProductEmployee(name, payment, unit);
+		return employee;
+	}
+	else if (type == EmployeeType::Manager)
+	{
+		employee = new Manager(name, payment, unit);
+		return employee;
+	}
+
+	return employee;
+}
+
+// Prototype Factory
+
+vector<IEmployee*> PrototypeFactory::_prototypes = { 
+	new DailyEmployee,
+	new HourlyEmployee,
+	new ProductEmployee,
+	new Manager
+};
+
+IEmployee* PrototypeFactory::makeEmployee(int type, string name, int payment, int unit)
+{
+	return _prototypes[--type]->Clone(name, payment, unit);
+}

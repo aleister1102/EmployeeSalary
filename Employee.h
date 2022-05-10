@@ -21,8 +21,6 @@ public:
 	void setFullName(string name) { _name = name; }
 	void setPayment(int payment) { _payment = payment; }
 
-	static IEmployee* getInfEmployee(int type, string name, int payment, int unit);
-
 public:
 	IEmployee();
 	IEmployee(string, int);
@@ -30,6 +28,7 @@ public:
 public:
 	virtual string toString() = 0;
 	virtual int getTotalPayment() = 0;
+	virtual IEmployee* Clone(string, int, int) = 0;
 };
 
 class DailyEmployee : public IEmployee {
@@ -46,6 +45,7 @@ public:
 public:
 	string toString();
 	int getTotalPayment();
+	IEmployee* Clone(string, int, int);
 };
 
 class HourlyEmployee : public IEmployee {
@@ -62,6 +62,7 @@ public:
 public:
 	string toString();
 	int getTotalPayment();
+	IEmployee* Clone(string, int, int);
 };
 
 class ProductEmployee : public IEmployee {
@@ -78,6 +79,7 @@ public:
 public:
 	string toString();
 	int getTotalPayment();
+	IEmployee* Clone(string, int, int);
 };
 
 
@@ -89,6 +91,7 @@ private:
 public:
 	int TotalEmployees() { return _totalEmployees; }
 	int FixedPayment() { return _fixedPayment; }
+
 public:
 	Manager();
 	Manager(string, int, int);
@@ -96,5 +99,18 @@ public:
 public:
 	string toString();
 	int getTotalPayment();
+	IEmployee* Clone(string, int, int);
 };
 
+class EmployeeFactory {
+public:
+	static IEmployee* createEmployee(int type, string name, int payment, int unit);
+};
+
+class PrototypeFactory {
+private:
+	static vector<IEmployee*> _prototypes;
+
+public:
+	IEmployee* makeEmployee(int type, string name, int payment, int unit);
+};

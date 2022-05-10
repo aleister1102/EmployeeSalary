@@ -15,22 +15,22 @@ vector<IEmployee*> getEmployee(string fileName)
         if (StringHelper::searchRegex(lines[i], DAILY_EMPLOYEE) != "")
         {
             int employeeType = EmployeeType::DailyEmployee;
-            employee = IEmployee::getInfEmployee(employeeType, name, payment, unit);
+            employee = EmployeeFactory ::createEmployee(employeeType, name, payment, unit);
         }
         else if (StringHelper::searchRegex(lines[i], HOURLY_EMPLOYEE) != "")
         {
             int employeeType = EmployeeType::HourlyEmployee;
-            employee = IEmployee::getInfEmployee(employeeType, name, payment, unit);
+            employee = EmployeeFactory::createEmployee(employeeType, name, payment, unit);
         }
         else if (StringHelper::searchRegex(lines[i], PRODUCT_EMPLOYEE) != "")
         {
             int employeeType = EmployeeType::ProductEmployee;
-            employee = IEmployee::getInfEmployee(employeeType, name, payment, unit);
+            employee = EmployeeFactory::createEmployee(employeeType, name, payment, unit);
         }
         else
         {
             int employeeType = EmployeeType::Manager; // default is manager
-            employee = IEmployee::getInfEmployee(employeeType, name, payment, unit);
+            employee = EmployeeFactory::createEmployee(employeeType, name, payment, unit);
         }
 
         employees.push_back(employee);
