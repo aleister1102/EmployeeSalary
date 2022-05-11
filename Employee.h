@@ -3,15 +3,15 @@
 
 class EmployeeType {
 public:
-	inline static int DailyEmployee = 1;
-	inline static int HourlyEmployee = 2;
-	inline static int ProductEmployee = 3;
-	inline static int Manager = 4;
+	inline static int DailyEmployee = 0;
+	inline static int HourlyEmployee = 1;
+	inline static int ProductEmployee = 2;
+	inline static int Manager = 3;
 };
 
 class IEmployee
 {
-private:
+protected:
 	string _name;
 	int _payment;
 
@@ -28,7 +28,7 @@ public:
 public:
 	virtual string toString() = 0;
 	virtual int getTotalPayment() = 0;
-	virtual IEmployee* Clone(string, int, int) = 0;
+	virtual IEmployee* Clone() = 0;
 };
 
 class DailyEmployee : public IEmployee {
@@ -37,15 +37,17 @@ private:
 
 public:
 	int Days() { return _days; }
+	void setDays(int days) { _days = days; }
 
 public:
 	DailyEmployee();
 	DailyEmployee(string, int, int);
+	DailyEmployee(const DailyEmployee& other);
 	
 public:
 	string toString();
 	int getTotalPayment();
-	IEmployee* Clone(string, int, int);
+	IEmployee* Clone();
 };
 
 class HourlyEmployee : public IEmployee {
@@ -54,15 +56,17 @@ private:
 
 public:
 	int Hours() { return _hours; }
+	void setHours(int hours) { _hours = hours; }
 
 public:
 	HourlyEmployee();
 	HourlyEmployee(string, int, int);
+	HourlyEmployee(const HourlyEmployee& other);
 
 public:
 	string toString();
 	int getTotalPayment();
-	IEmployee* Clone(string, int, int);
+	IEmployee* Clone();
 };
 
 class ProductEmployee : public IEmployee {
@@ -71,15 +75,16 @@ private:
 
 public:
 	int Products() { return _products; }
+	void setProducts(int products) { _products = products; }
 
 public:
 	ProductEmployee();
 	ProductEmployee(string, int, int);
-
+	ProductEmployee(const ProductEmployee& other);
 public:
 	string toString();
 	int getTotalPayment();
-	IEmployee* Clone(string, int, int);
+	IEmployee* Clone();
 };
 
 
@@ -91,27 +96,24 @@ private:
 public:
 	int TotalEmployees() { return _totalEmployees; }
 	int FixedPayment() { return _fixedPayment; }
+	void setTotalEmployees(int totalEmployees) { _totalEmployees = totalEmployees; }
 
 public:
 	Manager();
 	Manager(string, int, int);
+	Manager(const Manager& other);
 
 public:
 	string toString();
 	int getTotalPayment();
-	IEmployee* Clone(string, int, int);
+	IEmployee* Clone();
 };
 
 class EmployeeFactory {
-public:
-	static IEmployee* createEmployee(int type, string name, int payment, int unit);
-};
-
-class PrototypeFactory {
 private:
 	static vector<IEmployee*> _prototypes;
-
 public:
-	IEmployee* makeEmployee(int type, string name, int payment, int unit);
+	static IEmployee* createEmployee(int type);
 };
+
 

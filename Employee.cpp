@@ -27,9 +27,16 @@ DailyEmployee::DailyEmployee(string name, int payment, int days)
 	_days = days;
 }
 
-IEmployee* DailyEmployee::Clone(string name, int payment, int days)
+DailyEmployee::DailyEmployee(const DailyEmployee& other)
 {
-	return new DailyEmployee(name, payment, days);
+	this->_days = other._days;
+	this->_name = other._name;
+	this->_payment = other._payment;
+}
+
+IEmployee* DailyEmployee::Clone()
+{
+	return new DailyEmployee(*this);
 }
 
 string DailyEmployee::toString() {
@@ -61,9 +68,16 @@ HourlyEmployee::HourlyEmployee(string name, int payment, int hours)
 	_hours = hours;
 }
 
-IEmployee* HourlyEmployee::Clone(string name, int payment, int hours)
+HourlyEmployee::HourlyEmployee(const HourlyEmployee& other)
 {
-	return new HourlyEmployee(name, payment, hours);
+	this->_hours = other._hours;
+	this->_name = other._name;
+	this->_payment = other._payment;
+}
+
+IEmployee* HourlyEmployee::Clone()
+{
+	return new HourlyEmployee(*this);
 }
 
 string HourlyEmployee::toString() {
@@ -95,9 +109,16 @@ ProductEmployee::ProductEmployee(string name, int payment, int products)
 	_products = products;
 }
 
-IEmployee* ProductEmployee::Clone(string name, int payment, int products)
+ProductEmployee::ProductEmployee(const ProductEmployee& other)
 {
-	return new ProductEmployee(name, payment, products);
+	this->_products = other._products;
+	this->_name = other._name;
+	this->_payment = other._payment;
+}
+
+IEmployee* ProductEmployee::Clone()
+{
+	return new ProductEmployee(*this);
 }
 
 string ProductEmployee::toString() {
@@ -129,9 +150,17 @@ Manager::Manager(string name, int payment, int employees)
 	_totalEmployees = employees;
 }
 
-IEmployee* Manager::Clone(string name, int payment, int employees)
+Manager::Manager(const Manager& other)
 {
-	return new Manager(name, payment, employees);
+	this->_fixedPayment = other._fixedPayment;
+	this->_totalEmployees = other._totalEmployees;
+	this->_name = other._name;
+	this->_payment = other._payment;
+}
+
+IEmployee* Manager::Clone()
+{
+	return new Manager(*this);
 }
 
 string Manager::toString() {
@@ -154,44 +183,14 @@ int Manager::getTotalPayment()
 
 // Employee Factory
 
-IEmployee* EmployeeFactory::createEmployee(int type, string name, int payment, int unit)
-{
-	IEmployee* employee = nullptr;
-
-	if (type == EmployeeType::DailyEmployee)
-	{
-		employee = new DailyEmployee(name, payment, unit);
-		return employee;
-	}
-	else if (type == EmployeeType::HourlyEmployee)
-	{
-		employee = new HourlyEmployee(name, payment, unit);
-		return employee;
-	}
-	else if (type == EmployeeType::ProductEmployee)
-	{
-		employee = new ProductEmployee(name, payment, unit);
-		return employee;
-	}
-	else if (type == EmployeeType::Manager)
-	{
-		employee = new Manager(name, payment, unit);
-		return employee;
-	}
-
-	return employee;
-}
-
-// Prototype Factory
-
-vector<IEmployee*> PrototypeFactory::_prototypes = { 
+vector<IEmployee*> EmployeeFactory::_prototypes = {
 	new DailyEmployee,
 	new HourlyEmployee,
 	new ProductEmployee,
 	new Manager
 };
 
-IEmployee* PrototypeFactory::makeEmployee(int type, string name, int payment, int unit)
+IEmployee* EmployeeFactory::createEmployee(int type)
 {
-	return _prototypes[--type]->Clone(name, payment, unit);
+	return _prototypes[type]->Clone();
 }
