@@ -34,7 +34,7 @@ DailyEmployee::DailyEmployee(const DailyEmployee& other)
 	this->_payment = other._payment;
 }
 
-IEmployee* DailyEmployee::Clone()
+IEmployee* DailyEmployee::clone()
 {
 	return new DailyEmployee(*this);
 }
@@ -75,7 +75,7 @@ HourlyEmployee::HourlyEmployee(const HourlyEmployee& other)
 	this->_payment = other._payment;
 }
 
-IEmployee* HourlyEmployee::Clone()
+IEmployee* HourlyEmployee::clone()
 {
 	return new HourlyEmployee(*this);
 }
@@ -116,7 +116,7 @@ ProductEmployee::ProductEmployee(const ProductEmployee& other)
 	this->_payment = other._payment;
 }
 
-IEmployee* ProductEmployee::Clone()
+IEmployee* ProductEmployee::clone()
 {
 	return new ProductEmployee(*this);
 }
@@ -158,7 +158,7 @@ Manager::Manager(const Manager& other)
 	this->_payment = other._payment;
 }
 
-IEmployee* Manager::Clone()
+IEmployee* Manager::clone()
 {
 	return new Manager(*this);
 }
@@ -192,5 +192,5 @@ vector<IEmployee*> EmployeeFactory::_prototypes = {
 
 IEmployee* EmployeeFactory::createEmployee(int type)
 {
-	return _prototypes[type]->Clone();
+	return _prototypes[type]->clone();
 }

@@ -2,72 +2,66 @@
 
 vector<IEmployee*> getEmployee(string fileName)
 {
-    vector<string> lines = FileHelper::readTXT(fileName);
-    vector<IEmployee*> employees;
+	vector<string> lines = FileHelper::readTXT(fileName);
+	vector<IEmployee*> employees;
 
-    for (int i = 0; i < lines.size(); i += 2)
-    {
-        string name = StringHelper::trim(StringHelper::searchRegex(lines[i], NAME));
-        int payment = Converter::parseInt(StringHelper::searchRegex(lines[i + 1], PAYMENT));
-        int unit = Converter::parseInt(StringHelper::searchRegex(lines[i + 1], UNIT));
+	for (int i = 0; i < lines.size(); i += 2)
+	{
+		string name = StringHelper::trim(StringHelper::searchRegex(lines[i], NAME));
+		int payment = Converter::parseInt(StringHelper::searchRegex(lines[i + 1], PAYMENT));
+		int unit = Converter::parseInt(StringHelper::searchRegex(lines[i + 1], UNIT));
+		int fixedPayment = Converter::parseInt(StringHelper::searchRegex(lines[i + 1], PAYMENT, 2));
 
-        IEmployee *employee = nullptr;
-        if (StringHelper::searchRegex(lines[i], DAILY_EMPLOYEE) != "")
-        {
-            int employeeType = EmployeeType::DailyEmployee;
-            employee = EmployeeFactory ::createEmployee(employeeType);
+		IEmployee* employee = nullptr;
 
-            DailyEmployee* temp = (DailyEmployee*)employee;
+		if (StringHelper::searchRegex(lines[i], DAILY_EMPLOYEE) != "0")
+		{
+			employee = EmployeeFactory::createEmployee(EmployeeType::DailyEmployee);
+			auto temp = (DailyEmployee*) employee;
 
-            temp->setFullName(name);
-            temp->setPayment(payment);
-            temp->setDays(unit);
+			temp->setName(name);
+			temp->setPayment(payment);
+			temp->setDays(unit);
 
-            employee = (IEmployee*) temp;
+			employee = temp;
+		}
+		else if (StringHelper::searchRegex(lines[i], HOURLY_EMPLOYEE) != "0")
+		{
+			employee = EmployeeFactory::createEmployee(EmployeeType::HourlyEmployee);
+			auto temp = (HourlyEmployee*)employee;
 
-        }
-        else if (StringHelper::searchRegex(lines[i], HOURLY_EMPLOYEE) != "")
-        {
-            int employeeType = EmployeeType::HourlyEmployee;
-            employee = EmployeeFactory::createEmployee(employeeType);
+			temp->setName(name);
+			temp->setPayment(payment);
+			temp->setHours(unit);
 
-            HourlyEmployee* temp = (HourlyEmployee*)employee;
+			employee = temp;
+		}
+		else if (StringHelper::searchRegex(lines[i], PRODUCT_EMPLOYEE) != "0")
+		{
+			employee = EmployeeFactory::createEmployee(EmployeeType::ProductEmployee);
+			auto temp = (ProductEmployee*)employee;
 
-            temp->setFullName(name);
-            temp->setPayment(payment);
-            temp->setHours(unit);
+			temp->setName(name);
+			temp->setPayment(payment);
+			temp->setProducts(unit);
 
-            employee = (IEmployee*)temp;
-        }
-        else if (StringHelper::searchRegex(lines[i], PRODUCT_EMPLOYEE) != "")
-        {
-            int employeeType = EmployeeType::ProductEmployee;
-            employee = EmployeeFactory::createEmployee(employeeType);
-            ProductEmployee* temp = (ProductEmployee*)employee;
+			employee = temp;
+		}
+		else
+		{
+			employee = EmployeeFactory::createEmployee(EmployeeType::Manager); // default is manager
+			auto temp = (Manager*)employee;
 
-            temp->setFullName(name);
-            temp->setPayment(payment);
-            temp->setProducts(unit);
+			temp->setName(name);
+			temp->setPayment(payment);
+			temp->setTotalEmployees(unit);
+			temp->setFixedPayment(fixedPayment);
 
-            employee = (IEmployee*)temp;
-        }
-        else
-        {
-            int employeeType = EmployeeType::Manager; // default is manager
-            employee = EmployeeFactory::createEmployee(employeeType);
+			employee = temp;
+		}
 
-            Manager* temp = (Manager*)employee;
+		employees.push_back(employee);
+	}
 
-            temp->setFullName(name);
-            temp->setPayment(payment);
-            temp->setTotalEmployees(unit);
-
-            employee = (IEmployee*)temp;
-        }
-
-        employees.push_back(employee);
-    }
-    
-    return employees;
-    
+	return employees;
 }

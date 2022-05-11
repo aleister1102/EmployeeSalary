@@ -18,7 +18,7 @@ protected:
 public:
 	string Name() { return _name; }
 	int Payment(){return _payment;}
-	void setFullName(string name) { _name = name; }
+	void setName(string name) { _name = name; }
 	void setPayment(int payment) { _payment = payment; }
 
 public:
@@ -28,7 +28,7 @@ public:
 public:
 	virtual string toString() = 0;
 	virtual int getTotalPayment() = 0;
-	virtual IEmployee* Clone() = 0;
+	virtual IEmployee* clone() = 0;
 };
 
 class DailyEmployee : public IEmployee {
@@ -45,9 +45,9 @@ public:
 	DailyEmployee(const DailyEmployee& other);
 	
 public:
+	IEmployee* clone();
 	string toString();
 	int getTotalPayment();
-	IEmployee* Clone();
 };
 
 class HourlyEmployee : public IEmployee {
@@ -64,9 +64,9 @@ public:
 	HourlyEmployee(const HourlyEmployee& other);
 
 public:
+	IEmployee* clone();
 	string toString();
 	int getTotalPayment();
-	IEmployee* Clone();
 };
 
 class ProductEmployee : public IEmployee {
@@ -81,12 +81,12 @@ public:
 	ProductEmployee();
 	ProductEmployee(string, int, int);
 	ProductEmployee(const ProductEmployee& other);
+	
 public:
+	IEmployee* clone();
 	string toString();
 	int getTotalPayment();
-	IEmployee* Clone();
 };
-
 
 class Manager : public IEmployee {
 private:
@@ -97,6 +97,7 @@ public:
 	int TotalEmployees() { return _totalEmployees; }
 	int FixedPayment() { return _fixedPayment; }
 	void setTotalEmployees(int totalEmployees) { _totalEmployees = totalEmployees; }
+	void setFixedPayment(int fixedPayment) { _fixedPayment = fixedPayment; }
 
 public:
 	Manager();
@@ -104,9 +105,9 @@ public:
 	Manager(const Manager& other);
 
 public:
+	IEmployee* clone();
 	string toString();
 	int getTotalPayment();
-	IEmployee* Clone();
 };
 
 class EmployeeFactory {

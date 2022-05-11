@@ -37,7 +37,7 @@
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="FileHelper.cpp" />
     <ClCompile Include="StringHelper.cpp" />
-    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="November2021.txt" />

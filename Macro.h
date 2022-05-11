@@ -13,6 +13,6 @@
 #define MANAGER "Manager"
 
 #define NAME " [A-z ]+"
-#define PAYMENT "[0-9]+(?:\\$)"
+#define PAYMENT "[0-9]+(?=\\$)"
 #define UNIT "s=[0-9]+"
 
