@@ -9,12 +9,12 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Library">
+      <UniqueIdentifier>{087eef4f-68fc-47af-ad48-fa7ff9a8293e}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Library">
-      <UniqueIdentifier>{087eef4f-68fc-47af-ad48-fa7ff9a8293e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -47,6 +47,9 @@
     <ClInclude Include="Business.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Flags.h">
+      <Filter>Library</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Employee.cpp">
@@ -54,15 +57,6 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Converter.cpp">
-      <Filter>Library</Filter>
-    </ClCompile>
-    <ClCompile Include="FileHelper.cpp">
-      <Filter>Library</Filter>
-    </ClCompile>
-    <ClCompile Include="StringHelper.cpp">
-      <Filter>Library</Filter>
     </ClCompile>
     <ClCompile Include="Business.cpp">
       <Filter>Source Files</Filter>
@@ -72,5 +66,10 @@
     <Text Include="November2021.txt">
       <Filter>Resource Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="StaticLibrary.lib">
+      <Filter>Library</Filter>
+    </Library>
   </ItemGroup>
 </Project>

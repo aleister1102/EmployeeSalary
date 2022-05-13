@@ -27,20 +27,21 @@
     <ClInclude Include="Converter.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="FileHelper.h" />
+    <ClInclude Include="Flags.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="Standard.h" />
     <ClInclude Include="StringHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Business.cpp" />
-    <ClCompile Include="Converter.cpp" />
     <ClCompile Include="Employee.cpp" />
-    <ClCompile Include="FileHelper.cpp" />
-    <ClCompile Include="StringHelper.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="November2021.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="StaticLibrary.lib" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

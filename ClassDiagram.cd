@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="EmployeeType">
+    <Position X="0.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAQAAAAAAAAAAAAAAABAAAAAAAAAAABAA=</HashCode>
+      <FileName>Employee.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IEmployee">
+    <Position X="7.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAAIAAAAAAAAAAAAIKABAQAAAAAQABAAAAAEAAAAAA=</HashCode>
+      <FileName>Employee.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DailyEmployee">
+    <Position X="13" Y="4.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAACABAAAAAAAAAAAQAAAMAAABAA=</HashCode>
+      <FileName>Employee.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HourlyEmployee">
+    <Position X="0.75" Y="4.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAQAAAAAACABAAEAAAAAQAAAAAAEAAAAAA=</HashCode>
+      <FileName>Employee.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProductEmployee">
+    <Position X="4.75" Y="4.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAQAAAAACABAAAAAAAAAAAAIAAEAAAAAQ=</HashCode>
+      <FileName>Employee.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Manager">
+    <Position X="9" Y="4.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAACAAAAAAAgiABAAAAAAABAAAAAAIEAAIAAA=</HashCode>
+      <FileName>Employee.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EmployeeFactory">
+    <Position X="13.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAIA=</HashCode>
+      <FileName>Employee.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
