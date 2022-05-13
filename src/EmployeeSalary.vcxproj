@@ -19,19 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitignore" />
-    <None Include="ClassDiagram.cd" />
-    <None Include="readme.md" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="..\include\Converter.h" />
+    <ClInclude Include="..\include\FileHelper.h" />
+    <ClInclude Include="..\include\Flags.h" />
+    <ClInclude Include="..\include\Standard.h" />
+    <ClInclude Include="..\include\StringHelper.h" />
     <ClInclude Include="Business.h" />
-    <ClInclude Include="Converter.h" />
     <ClInclude Include="Employee.h" />
-    <ClInclude Include="FileHelper.h" />
-    <ClInclude Include="Flags.h" />
     <ClInclude Include="Macro.h" />
-    <ClInclude Include="Standard.h" />
-    <ClInclude Include="StringHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Business.cpp" />
@@ -39,10 +34,10 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="November2021.txt" />
+    <Library Include="..\include\StaticLibrary.lib" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="StaticLibrary.lib" />
+    <Text Include="..\data\November2021.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -105,6 +100,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>W:\oop\employee_payment\include;$(IncludePath)</IncludePath>
+    <LibraryPath>W:\oop\employee_payment\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>

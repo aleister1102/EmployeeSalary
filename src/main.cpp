@@ -10,7 +10,7 @@ int main()
 {
 
 #if 1
-	company.employees = getEmployee("data/November2021.txt");
+	company.employees = getEmployee("../data/November2021.txt");
 	for (auto employee : company.employees)
 	{
 		cout << employee->toString();

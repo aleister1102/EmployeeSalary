@@ -9,68 +9,59 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Library">
-      <UniqueIdentifier>{087eef4f-68fc-47af-ad48-fa7ff9a8293e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{087eef4f-68fc-47af-ad48-fa7ff9a8293e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitignore">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="readme.md">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="ClassDiagram.cd" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="Business.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Employee.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Macro.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Converter.h">
-      <Filter>Library</Filter>
+    <ClInclude Include="..\include\Converter.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="FileHelper.h">
-      <Filter>Library</Filter>
+    <ClInclude Include="..\include\FileHelper.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="StringHelper.h">
-      <Filter>Library</Filter>
+    <ClInclude Include="..\include\Flags.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="Standard.h">
-      <Filter>Library</Filter>
+    <ClInclude Include="..\include\Standard.h">
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="Business.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Flags.h">
-      <Filter>Library</Filter>
+    <ClInclude Include="..\include\StringHelper.h">
+      <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Business.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Employee.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Business.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="November2021.txt">
+    <Library Include="..\include\StaticLibrary.lib">
+      <Filter>Include</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\data\November2021.txt">
       <Filter>Resource Files</Filter>
     </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="StaticLibrary.lib">
-      <Filter>Library</Filter>
-    </Library>
   </ItemGroup>
 </Project>
