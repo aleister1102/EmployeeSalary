@@ -26,7 +26,9 @@
 |Lê Phước Toàn|2012086|9|
 
 ## Điểm cộng mong muốn:
-- Sử dụng thư viện tự build
+- Sử dụng thư viện tự build.
+- Sử dụng regex để đọc file một cách tự nhiên.
+- Có xây dựng Class Diagram minh họa.
 
 
 
