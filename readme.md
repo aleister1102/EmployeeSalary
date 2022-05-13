@@ -23,7 +23,13 @@
 |Tên|MSSV|Điểm|
 |:-|:-:|:-:|
 |Lê Minh Quân|20120356|9|
-|Lê Phước Toàn|2012086|9
+|Lê Phước Toàn|2012086|9|
+
+## Điểm cộng mong muốn:
+- Sử dụng thư viện tự build
+
+
+
 
 
 

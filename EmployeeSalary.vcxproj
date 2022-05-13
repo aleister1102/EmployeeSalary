@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="ClassDiagram.cd" />
     <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>

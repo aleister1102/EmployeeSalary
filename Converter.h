@@ -12,3 +12,5 @@ public:
 	static int parseInt(string str);
 	static float parseFloat(string str);
 };
+
+
