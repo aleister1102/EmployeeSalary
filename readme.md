@@ -22,7 +22,7 @@
 
 |Tên|MSSV|Điểm|
 |:-|:-:|:-:|
-|Lê Minh Quân|20120356|9|
+|Lê Minh Quân|20120356|9.5|
 |Lê Phước Toàn|2012086|9|
 
 ## Điểm cộng mong muốn:
