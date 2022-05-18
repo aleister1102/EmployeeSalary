@@ -1,4 +1,4 @@
-# Đồ án Employee Salary`
+# Đồ án Employee Salary
 
 Đồ án môn học OOP, HCMUS.
 
