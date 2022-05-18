@@ -36,10 +36,10 @@
     <ClInclude Include="..\include\Flags.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Standard.h">
+    <ClInclude Include="..\include\StringHelper.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\StringHelper.h">
+    <ClInclude Include="..\include\Standard.h">
       <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>

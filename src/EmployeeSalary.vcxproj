@@ -100,8 +100,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>W:\oop\employee_payment\include;$(IncludePath)</IncludePath>
-    <LibraryPath>W:\oop\employee_payment\include;$(LibraryPath)</LibraryPath>
+    <IncludePath>W:\oop\empl0y33_s4l4ry\include;$(IncludePath)</IncludePath>
+    <LibraryPath>W:\oop\empl0y33_s4l4ry\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
