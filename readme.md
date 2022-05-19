@@ -8,6 +8,8 @@
 
 ## [Yêu cầu đồ án](https://tdquang7.notion.site/Project-Emloyee-payment-78ac0241bfea4e07b502020b0c20de86)
 
+## [GitHub](https://github.com/marucube35/empl0y33_s4l4ry)
+
 ## Tiến độ công việc 
 
 |Tên công việc|Phần trăm|
